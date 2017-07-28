@@ -1,0 +1,10 @@
+pic_perf_demo.bannerImage.narrow:
+  label: narrow
+  mediaQuery: ''
+  weight: 0
+  group: Banner Image
+pic_perf_demo.bannerImage.wide:
+  label: wide
+  mediaQuery: '(min-width: 600px)'
+  weight: 1
+  group: Banner Image
