@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming.
+ */
+
+use Drupal\Core\Url;
+
+function pic_perf_demo_preprocess_field(&$variables) {
+  if ($variables['field_name'] !== 'field_svg_image') {
+    return;
+  }
+
+  $img_path = $variables['items']['0']['content']['#file']->url();
+  $alt_text = '';
+  $alt_text = $variables['items']['0']['content']['#description'];
+  $variables['img_path'] = $img_path;
+  $variables['alt_text'] = $alt_text;
+}
+
+function pic_perf_demo_preprocess_node(&$variables) {
+
+  $node = $variables['node'];
+
+  if ($node->getType() !== 'custom_svg_goodies' || $variables['view_mode'] !== 'teaser' || !$node->hasField('field_img_orientation')) {
+    return;
+  }
+
+  $orientation = $node->get('field_img_orientation')->value;
+  if (empty($variables['attributes']['class'])) {
+    $variables['attributes']['class'] = [];
+  }
+  $variables['attributes']['class'][] = 'orientation--' . $orientation;
+}
