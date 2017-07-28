@@ -1,0 +1,5 @@
+name: Picture Perfect Demo
+type: theme
+base theme: bartik
+description: "Oh god I'm actually using Bartik for something."
+core: 8.x
