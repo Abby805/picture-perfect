@@ -1,0 +1,17 @@
+.view-logos .view-content {
+  display: flex;
+  align-items: center;
+}
+
+.view-logos .views-row {
+  width: 23.5%;
+  text-align: center;
+}
+
+.view-logos .views-row:nth-child(4n+1) {
+  margin-left: 0;
+}
+
+.node-type-custom_svg_goodies-teaser.orientation--vertical img {
+  max-width: 50%;
+}

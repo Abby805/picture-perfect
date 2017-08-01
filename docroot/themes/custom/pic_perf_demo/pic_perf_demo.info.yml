@@ -3,3 +3,5 @@ type: theme
 base theme: bartik
 description: "Oh god I'm actually using Bartik for something."
 core: 8.x
+libraries:
+  - pic_perf_demo/global_styles

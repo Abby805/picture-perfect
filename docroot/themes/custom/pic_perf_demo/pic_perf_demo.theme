@@ -22,14 +22,25 @@ function pic_perf_demo_preprocess_field(&$variables) {
 function pic_perf_demo_preprocess_node(&$variables) {
 
   $node = $variables['node'];
+  $variables['attributes']['class'][] = 'node-type-' . $node->getType() . '-' . $variables['view_mode'];
 
-  if ($node->getType() !== 'custom_svg_goodies' || $variables['view_mode'] !== 'teaser' || !$node->hasField('field_img_orientation')) {
-    return;
+  switch ($node->getType()) {
+    case 'custom_svg_goodies':
+      if ($variables['view_mode'] !== 'teaser' || !$node->hasField('field_img_orientation')) {
+        break;
+      }
+      $orientation = $node->get('field_img_orientation')->value;
+      if (empty($variables['attributes']['class'])) {
+        $variables['attributes']['class'] = [];
+      }
+      $variables['attributes']['class'][] = 'orientation--' . $orientation;
+      break;
+    case 'image_style_demo':
+      if ($variables['content']['field_image_crop'][0]['#markup'] !== 'landscape') {
+        break;
+      }
+      $variables['content']['field_featured_image'][0]['#image_style'] = 'focal_point_landscape';
+      hide($variables['content']['field_image_crop']);
+      break;
   }
-
-  $orientation = $node->get('field_img_orientation')->value;
-  if (empty($variables['attributes']['class'])) {
-    $variables['attributes']['class'] = [];
-  }
-  $variables['attributes']['class'][] = 'orientation--' . $orientation;
 }
