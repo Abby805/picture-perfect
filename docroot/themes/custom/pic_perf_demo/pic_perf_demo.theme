@@ -36,11 +36,11 @@ function pic_perf_demo_preprocess_node(&$variables) {
       $variables['attributes']['class'][] = 'orientation--' . $orientation;
       break;
     case 'image_style_demo':
+      hide($variables['content']['field_image_crop']);
       if ($variables['content']['field_image_crop'][0]['#markup'] !== 'landscape') {
         break;
       }
       $variables['content']['field_featured_image'][0]['#image_style'] = 'focal_point_landscape';
-      hide($variables['content']['field_image_crop']);
       break;
   }
 }
