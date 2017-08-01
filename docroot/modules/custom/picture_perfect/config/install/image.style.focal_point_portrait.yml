@@ -1,0 +1,15 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - focal_point
+name: focal_point_portrait
+label: 'Focal Point Portrait'
+effects:
+  3cc0a557-ea69-40e3-8e4c-7896d0ff3fe2:
+    uuid: 3cc0a557-ea69-40e3-8e4c-7896d0ff3fe2
+    id: focal_point_scale_and_crop
+    weight: 1
+    data:
+      width: 300
+      height: 600

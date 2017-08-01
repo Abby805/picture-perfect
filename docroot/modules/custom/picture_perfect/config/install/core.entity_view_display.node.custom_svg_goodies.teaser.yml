@@ -1,0 +1,44 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.custom_svg_goodies.field_bitmap_fallback
+    - field.field.node.custom_svg_goodies.field_img_orientation
+    - field.field.node.custom_svg_goodies.field_svg_image
+    - node.type.custom_svg_goodies
+  module:
+    - file
+    - image
+    - options
+    - user
+id: node.custom_svg_goodies.teaser
+targetEntityType: node
+bundle: custom_svg_goodies
+mode: teaser
+content:
+  field_bitmap_fallback:
+    type: image
+    weight: 2
+    region: content
+    label: hidden
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+  field_img_orientation:
+    type: list_key
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_svg_image:
+    type: file_default
+    weight: 0
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  links: true
