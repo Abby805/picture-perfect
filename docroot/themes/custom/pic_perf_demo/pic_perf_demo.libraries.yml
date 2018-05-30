@@ -1,5 +1,5 @@
 global_styles:
-  version: VERSION
+  version: 2.0
   css:
     theme:
       css/styles.css: {}
